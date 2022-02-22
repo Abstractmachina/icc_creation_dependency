@@ -108,8 +108,13 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueWithCombinationOfTitleAndOtherParameters() {
 
-    List<Book> books = query().withTitle("of").afterPublicationYear(1800).beforePublicationYear(2000).build().execute(BritishLibraryCatalogue.getInstance());
-    assertThat(books.size(), is(3));
-    assertTrue(books.get(0).matchesAuthor("charles dickens"));
+    context.checking(
+        new Expectations() {{
+          exactly(1).of(catalogue).searchFor("TITLECONTAINS(of) PUBLISHEDAFTER(1800) PUBLISHEDBEFORE(2000) ");
+        }}
+    );
+    List<Book> books = query().withTitle("of").afterPublicationYear(1800).beforePublicationYear(2000).build().execute(catalogue);
+//    assertThat(books.size(), is(3));
+//    assertTrue(books.get(0).matchesAuthor("charles dickens"));
   }
 }
