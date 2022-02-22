@@ -39,9 +39,14 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueByAuthorFirstname() {
 
-    List<Book> books = query().withFirstName("Jane").build().execute(BritishLibraryCatalogue.getInstance());
-    assertThat(books.size(), is(2));
-    assertTrue(books.get(0).matchesAuthor("Austen"));
+    context.checking(
+        new Expectations() {{
+          exactly(1).of(catalogue).searchFor("FIRSTNAME='Jane' ");
+        }}
+    );
+    List<Book> books = query().withFirstName("Jane").build().execute(catalogue);
+//    assertThat(books.size(), is(2));
+//    assertTrue(books.get(0).matchesAuthor("Austen"));
   }
 
   @Test
