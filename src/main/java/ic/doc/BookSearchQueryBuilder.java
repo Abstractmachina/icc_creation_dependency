@@ -8,7 +8,7 @@ public class BookSearchQueryBuilder {
   private String surname;
   private String title;
   private Integer date1;
-  private Integer date2;
+  private Integer publicationYear;
 
   private BookSearchQueryBuilder() {}
 
@@ -17,7 +17,7 @@ public class BookSearchQueryBuilder {
   }
 
   public List<Book> build() {
-    return new BookSearchQuery(name, surname, title, date1, date2).execute();
+    return new BookSearchQuery(name, surname, title, date1, publicationYear).execute();
   }
 
   public BookSearchQueryBuilder withFirstName(String firstName) {
@@ -32,6 +32,11 @@ public class BookSearchQueryBuilder {
 
   public BookSearchQueryBuilder withTitle(String title) {
     this.title = title;
+    return this;
+  }
+
+  public BookSearchQueryBuilder beforePublicationYear(Integer year) {
+    this.publicationYear = year;
     return this;
   }
 }
