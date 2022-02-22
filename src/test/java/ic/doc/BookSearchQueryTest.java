@@ -7,22 +7,27 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import org.junit.Test;
 
+import static ic.doc.BookSearchQueryBuilder.*;
+
 public class BookSearchQueryTest {
 
   @Test
   public void searchesForBooksInLibraryCatalogueByAuthorSurname() {
 
-    List<Book> books = new BookSearchQuery(null, "dickens", null, null, null).execute();
+    //List<Book> books = new BookSearchQuery(null, "dickens", null, null, null).execute();
+    List<Book> books = aQuery().withSurname("dickens").build();
 
     assertThat(books.size(), is(2));
     assertTrue(books.get(0).matchesAuthor("dickens"));
   }
 
+
+
   @Test
   public void searchesForBooksInLibraryCatalogueByAuthorFirstname() {
 
-    List<Book> books = new BookSearchQuery("Jane", null, null, null, null).execute();
-
+    //List<Book> books = new BookSearchQuery("Jane", null, null, null, null).execute();
+    //List<Book> books = aQuery().withFirstName("Jane").build();
     assertThat(books.size(), is(2));
     assertTrue(books.get(0).matchesAuthor("Austen"));
   }
