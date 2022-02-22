@@ -44,8 +44,8 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueBeforeGivenPublicationYear() {
 
-    List<Book> books = new BookSearchQuery(null, null, null, null, 1700).execute();
-
+    //List<Book> books = new BookSearchQuery(null, null, null, null, 1700).execute();
+    List<Book> books = aQuery().withPublicationYear(1700).build();
     assertThat(books.size(), is(1));
     assertTrue(books.get(0).matchesAuthor("Shakespeare"));
   }
