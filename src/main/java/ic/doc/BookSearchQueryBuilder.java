@@ -13,12 +13,12 @@ public class BookSearchQueryBuilder {
 
   private BookSearchQueryBuilder() {}
 
-  public static BookSearchQueryBuilder aQuery() {
+  public static BookSearchQueryBuilder query() {
     return new BookSearchQueryBuilder();
   }
 
-  public List<Book> build(Searchable catalogue) {
-    return new BookSearchQuery(name, surname, title, afterYear, beforeYear).execute(catalogue);
+  public BookSearchQuery build() {
+    return new BookSearchQuery(name, surname, title, afterYear, beforeYear);
   }
 
   public BookSearchQueryBuilder withFirstName(String firstName) {
