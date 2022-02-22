@@ -1,5 +1,6 @@
 package ic.doc;
 
+import ic.doc.catalogues.Searchable;
 import java.util.List;
 
 public class BookSearchQueryBuilder {
@@ -16,8 +17,8 @@ public class BookSearchQueryBuilder {
     return new BookSearchQueryBuilder();
   }
 
-  public List<Book> build() {
-    return new BookSearchQuery(name, surname, title, afterYear, beforeYear).execute();
+  public List<Book> build(Searchable catalogue) {
+    return new BookSearchQuery(name, surname, title, afterYear, beforeYear).execute(catalogue);
   }
 
   public BookSearchQueryBuilder withFirstName(String firstName) {
