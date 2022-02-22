@@ -80,9 +80,15 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueAfterGivenPublicationYear() {
 
-    List<Book> books = query().afterPublicationYear(1950).build().execute(BritishLibraryCatalogue.getInstance());
-    assertThat(books.size(), is(1));
-    assertTrue(books.get(0).matchesAuthor("Golding"));
+    context.checking(
+        new Expectations() {{
+          exactly(1).of(catalogue).searchFor("PUBLISHEDAFTER(1950) ");
+        }}
+    );
+
+    List<Book> books = query().afterPublicationYear(1950).build().execute(catalogue);
+//    assertThat(books.size(), is(1));
+//    assertTrue(books.get(0).matchesAuthor("Golding"));
   }
 
   @Test
