@@ -94,9 +94,15 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueWithCombinationOfParameters() {
 
-    List<Book> books = query().withSurname("dickens").beforePublicationYear(1840).build().execute(BritishLibraryCatalogue.getInstance());
-    assertThat(books.size(), is(1));
-    assertTrue(books.get(0).matchesAuthor("charles dickens"));
+    context.checking(
+        new Expectations() {{
+          exactly(1).of(catalogue).searchFor("LASTNAME='dickens' PUBLISHEDBEFORE(1840) ");
+        }}
+    );
+
+    List<Book> books = query().withSurname("dickens").beforePublicationYear(1840).build().execute(catalogue);
+//    assertThat(books.size(), is(1));
+//    assertTrue(books.get(0).matchesAuthor("charles dickens"));
   }
 
   @Test
