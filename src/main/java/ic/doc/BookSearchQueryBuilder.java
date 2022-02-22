@@ -1,8 +1,5 @@
 package ic.doc;
 
-import ic.doc.catalogues.Searchable;
-import java.util.List;
-
 public class BookSearchQueryBuilder {
 
   private String name;

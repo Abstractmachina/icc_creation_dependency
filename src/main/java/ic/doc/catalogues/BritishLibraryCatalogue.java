@@ -20,7 +20,7 @@ public class BritishLibraryCatalogue implements Searchable {
 
   private final Collection<Book> catalogue = allTheBooks();
 
-  private BritishLibraryCatalogue(){}
+  private BritishLibraryCatalogue() {}
 
   public static BritishLibraryCatalogue getInstance() {
     return instance;
