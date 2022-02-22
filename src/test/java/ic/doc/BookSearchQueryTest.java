@@ -87,7 +87,7 @@ public class BookSearchQueryTest {
     assertTrue(books.get(0).matchesAuthor("charles dickens"));
   }
 
-  //keeping old tests above to pass coverage. not sure if there's another way
+  // keeping old tests above to pass coverage. not sure if there's another way
   // to pass coverage testing for BritishLibraryCatalogue
   // ============================================================================
   //                  MOCK OBJECT TESTING
