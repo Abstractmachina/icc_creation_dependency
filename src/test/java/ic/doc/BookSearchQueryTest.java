@@ -52,9 +52,15 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueByTitle() {
 
-    List<Book> books = query().withTitle("Two Cities").build().execute(BritishLibraryCatalogue.getInstance());
-    assertThat(books.size(), is(1));
-    assertTrue(books.get(0).matchesAuthor("dickens"));
+    context.checking(
+        new Expectations() {{
+          exactly(1).of(catalogue).searchFor("TITLECONTAINS(Two Cities) ");
+        }}
+    );
+
+    List<Book> books = query().withTitle("Two Cities").build().execute(catalogue);
+    //assertThat(books.size(), is(1));
+    //assertTrue(books.get(0).matchesAuthor("dickens"));
   }
 
   @Test
