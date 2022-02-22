@@ -29,4 +29,9 @@ public class BookSearchQueryBuilder {
     this.surname = surname;
     return this;
   }
+
+  public BookSearchQueryBuilder withTitle(String title) {
+    this.title = title;
+    return this;
+  }
 }

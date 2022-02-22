@@ -36,7 +36,7 @@ public class BookSearchQueryTest {
   public void searchesForBooksInLibraryCatalogueByTitle() {
 
     //List<Book> books = new BookSearchQuery(null, null, "Two Cities", null, null).execute();
-    List<Book> books = aQuery().withTitle("Two Cities");
+    List<Book> books = aQuery().withTitle("Two Cities").build();
     assertThat(books.size(), is(1));
     assertTrue(books.get(0).matchesAuthor("dickens"));
   }
