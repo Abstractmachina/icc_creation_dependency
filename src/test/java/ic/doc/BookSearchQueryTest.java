@@ -53,8 +53,8 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueAfterGivenPublicationYear() {
 
-    List<Book> books = new BookSearchQuery(null, null, null, 1950, null).execute();
-
+    //List<Book> books = new BookSearchQuery(null, null, null, 1950, null).execute();
+    List<Book> books = aQuery().afterPublicationYear(1950).build();
     assertThat(books.size(), is(1));
     assertTrue(books.get(0).matchesAuthor("Golding"));
   }
