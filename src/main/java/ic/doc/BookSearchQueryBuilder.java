@@ -21,7 +21,7 @@ public class BookSearchQueryBuilder {
   }
 
   public BookSearchQueryBuilder withFirstName(String firstName) {
-    this.name = firstName;
+   // this.name = firstName;
     return this;
   }
 
