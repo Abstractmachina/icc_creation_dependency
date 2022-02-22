@@ -62,8 +62,8 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueWithCombinationOfParameters() {
 
-    List<Book> books = new BookSearchQuery(null, "dickens", null, null, 1840).execute();
-
+    //List<Book> books = new BookSearchQuery(null, "dickens", null, null, 1840).execute();
+    List<Book> books = aQuery().withSurname("dickens").beforePublicationYear(1840).build();
     assertThat(books.size(), is(1));
     assertTrue(books.get(0).matchesAuthor("charles dickens"));
   }
