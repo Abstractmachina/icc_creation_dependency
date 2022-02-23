@@ -7,6 +7,7 @@ import static ic.doc.catalogues.QueryParser.publishedBeforeFrom;
 import static ic.doc.catalogues.QueryParser.titleFrom;
 
 import ic.doc.Book;
+import ic.doc.Searchable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -16,7 +17,7 @@ public class BritishLibraryCatalogue implements Searchable {
 
   // imagine that each new instance of this object uses more than 500MB of RAM
 
-  private static BritishLibraryCatalogue instance = new BritishLibraryCatalogue();
+  private static final BritishLibraryCatalogue instance = new BritishLibraryCatalogue();
 
   private final Collection<Book> catalogue = allTheBooks();
 

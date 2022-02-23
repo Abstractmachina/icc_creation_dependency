@@ -1,8 +1,8 @@
-package ic.doc.catalogues;
+package ic.doc;
 
 import ic.doc.Book;
 import java.util.List;
 
 public interface Searchable {
-  public List<Book> searchFor(String query);
+  List<Book> searchFor(String query);
 }

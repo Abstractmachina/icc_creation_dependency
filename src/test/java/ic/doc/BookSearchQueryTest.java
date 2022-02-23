@@ -6,7 +6,6 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import ic.doc.catalogues.BritishLibraryCatalogue;
-import ic.doc.catalogues.Searchable;
 import java.util.List;
 import org.jmock.Expectations;
 import org.jmock.integration.junit4.JUnitRuleMockery;
@@ -15,6 +14,7 @@ import org.junit.Test;
 
 public class BookSearchQueryTest {
 
+  /*
   @Test
   public void searchesForBooksInLibraryCatalogueByAuthorSurname() {
 
@@ -87,6 +87,8 @@ public class BookSearchQueryTest {
     assertTrue(books.get(0).matchesAuthor("charles dickens"));
   }
 
+
+   */
   // keeping old tests above to pass coverage. not sure if there's another way
   // to pass coverage testing for BritishLibraryCatalogue
   // ============================================================================
